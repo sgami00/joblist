@@ -1,17 +1,22 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Factories;
 
-use Illuminate\Database\Seeder;
 use App\Models\Job;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-class JobSeeder extends Seeder
+class JobFactory extends Factory
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
+    protected $model = Job::class;
+
+    public function definition(): array
     {
-        Job::factory(50)->create();
+        $job = fake()->randomElement(Job::getJobs());
+
+        return [
+            'title'       => $job['title'],
+            'salary'      => (int) str_replace(['₱', ','], '', $job['salary']),
+            'description' => $job['description'],
+        ];
     }
 }
