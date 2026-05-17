@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin;
 use App\Models\Job;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -13,6 +14,12 @@ class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
+        Admin::create([
+            'name'     => 'Admin',
+            'email'    => 'admin@example.com',
+            'password' => bcrypt('password'),
+        ]);
+
         User::factory()->create([
             'name'  => 'Juan Dela Cruz',
             'email' => 'juandc@example.com',
