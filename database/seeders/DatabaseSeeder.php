@@ -13,10 +13,10 @@ class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
-        // Auto create admin
+        
         User::factory()->admin()->create();
+        
 
-        // Regular user
         User::factory()->create([
             'name'  => 'Juan Dela Cruz',
             'email' => 'juandc@example.com',

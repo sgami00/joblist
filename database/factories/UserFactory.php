@@ -22,8 +22,8 @@ class UserFactory extends Factory
     public function admin(): static
     {
         return $this->state(fn () => [
-            'name'  => 'Admin',
-            'email' => 'admin@example.com',
+            'name'  => fake()->name(),
+            'email' => fake()->unique()->safeEmail(),
             'admin' => true,
         ]);
     }
