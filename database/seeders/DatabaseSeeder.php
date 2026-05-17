@@ -14,14 +14,6 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         
-        User::factory()->admin()->create();
-        
-
-        User::factory()->create([
-            'name'  => 'Juan Dela Cruz',
-            'email' => 'juandc@example.com',
-        ]);
-
         foreach (Job::getJobs() as $job) {
             Job::create([
                 'title'       => $job['title'],
